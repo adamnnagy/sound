@@ -15,7 +15,7 @@ var balls = [];
 var bg;
 
 function setup(){
-  // bg = loadImage('space.jpg');
+
   createCanvas(windowWidth,windowHeight);
 
   current = createVector(0,0);
@@ -26,16 +26,19 @@ function setup(){
 
   ball = new Ball(20, random(width), random(height), random(2, 3), random(1, 3));
 
+//text properties
+
+textSize(50);
+
+
+
 }
 
 function draw() {
 
-  // fill(240, 187, 249);
-  // rect(0,0,windowWidth,windowHeight);
-  // background(bg);
+  
 
   micLevel = mic.getLevel();
-  // console.log(micLevel);
 
   fill(255);
   ball.y = map(micLevel, 0,1, windowHeight/2, windowHeight);
@@ -47,6 +50,7 @@ function draw() {
   ball.display();
 
   if (millis() > next && painting) {
+
 
       // Grab mouse position
       current.x = ball.x;
@@ -78,18 +82,11 @@ function draw() {
     previous.y = ball.y;
     paths.push(new Path());
     // something();
-  }
 
 
-//replace this!
 
-function something() {
-  next = 0;
-  painting = true;
-  previous.x = ball.x;
-  previous.y = ball.y;
-  paths.push(new Path());
 }
+
 
 //using https://p5js.org/examples/hello-p5-drawing.html
 
